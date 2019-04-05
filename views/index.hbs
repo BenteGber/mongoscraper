@@ -1,0 +1,35 @@
+<h1>Articles on Green Energy and Cleantech</h1>
+<p>From Greentech Media</p>
+
+{{#each this}}
+{{#if this.title}}
+<div class="card-columns">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{this.title}}</h4>
+            <p class="card-text">Original Article:
+                <a href={{this.link}}>
+                    Here
+                </a> </p>
+
+            <p class="card-text">Published on: {{this.source}}</p>
+
+            <form class="commentForm" data-mongoid={{this._id}} onsubmit="addComment()">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="comment" placeholder="Add a comment here"/>
+                    <input class="btn btn-primary" type="submit"/>
+                </div>
+                {{!-- {{#each this.comments}} --}}
+                {{#if this.comments}}
+                <label class="label">Comments: </label>
+                {{#each this.comments}}
+                <p class="card-text">{{this}}</p>
+                {{/each}}
+                {{/if}}
+                {{!-- {{/each}} --}}
+            </form>
+        </div>
+    </div>
+</div>
+{{/if}}
+{{/each}}
